@@ -9,11 +9,19 @@ type VPKEndian = byteorder::LittleEndian;
 
 #[derive(Debug, Default)]
 pub struct DirEntry {
+    /// The name of the file associated with the entry
     pub file: String,
+    /// The file's cyclic redundancy check value
     pub crc: u32,
+    /// Preload data stored in the directory tree
     pub preload_data: Vec<u8>,
+    /// The VPK datafile this entry is stored in. If `None`, the entry data is stored after
+    /// the directory tree.
     pub archive_index: Option<u16>,
+    /// The entry's byte offset from the beginning of the datafile. If `archive_index` is `None`,
+    /// this is the offset from the beginning of the data section in the directory file.
     pub entry_offset: u32,
+    /// The length of the entry in the datafile, in bytes.
     pub entry_length: u32
 }
 
