@@ -1,0 +1,6 @@
+[package]
+authors = ["Osspial <osspial@gmail.com>"]
+name = "vpk"
+version = "0.1.0"
+[dependencies]
+byteorder = "1.1"
